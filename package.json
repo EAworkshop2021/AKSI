@@ -8,8 +8,6 @@
     "gulp": "4.0.2",
     "gulp-htmlmin": "5.0.1",
     "gulp-libsquoosh": "^1.0.12",
-    "gulp-nunjucks": "^5.1.0",
-    "gulp-nunjucks-render": "^2.2.3",
     "gulp-nunjucks-templates": "^1.0.9",
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "9.0.0",
