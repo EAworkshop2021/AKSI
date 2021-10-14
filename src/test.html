@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+  {% block head %}
+    <title>Test page</title>
+  {% endblock %}
+
+{% block bodyclass %}page-test-2{% endblock %}
+
+{% block page %}
+
+  {% include "header.html" %}
+
+  {% set pageName = "pageTwo" %}
+    {% include "test-menu.html" %}
+
+
+  {# {{ super() }} #}
+  Мой новый контент!!!
+
+  {# {% include "footer.html" %} #}
+
+{% endblock %}
