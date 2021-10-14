@@ -1,0 +1,14 @@
+<ul>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+
+  <li class="menu-item {% if pageName == 'pageOne' %} active{% endif %}">pageOne</li>
+  <li class="menu-item {% if pageName == 'pageTwo' %} active{% endif %}">pageTwo</li>
+  <li class="menu-item {% if pageName == 'pageThree' %} active{% endif %}">pageThree</li>
+</ul>
+
+<i>pageName is: {{ pageName }}</i>
+<br>

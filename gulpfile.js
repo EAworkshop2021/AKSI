@@ -9,15 +9,15 @@ const rename = require("gulp-rename");
 const terser = require("gulp-terser");
 const squoosh = require("gulp-libsquoosh");
 const webp = require("gulp-webp");
-const svgstore = require("gulp-svgstore");
+const svgSprite = require("gulp-svg-sprite");
 const del = require("del");
 const sync = require("browser-sync").create();
-const nunjucks = require('gulp-nunjucks');
+var nunjucks = require("gulp-nunjucks-templates");
 
 const paths = {
-  src: "source",
+  src: "src",
   dest: "dest",
-  watch: "dest/**/*.**",
+  watch: "src",
   server: "dest",
   port: "8008",
 };
@@ -35,7 +35,7 @@ const styles = () => {
     ]))
     .pipe(rename("style.min.css"))
     .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest(`${paths.dest}/css`))
     .pipe(sync.stream());
 }
 
@@ -45,9 +45,14 @@ exports.styles = styles;
 
 const html = () => {
   return gulp.src( `${paths.src}/*.html`)
-    .pipe(nunjucks.compile())
-    .pipe(gulp.dest("build"));
+    .pipe(nunjucks({
+      path: ["src/layouts", "src/includes"],
+      ext: ".html",
+    }))
+    .pipe(gulp.dest(paths.dest));
 }
+
+exports.html = html;
 
 // Scripts
 
@@ -55,7 +60,7 @@ const scripts = () => {
   return gulp.src( `${paths.src}/js/script.js`, {"allowEmpty": true})
     .pipe(terser())
     .pipe(rename("script.min.js"))
-    .pipe(gulp.dest("build/js"))
+    .pipe(gulp.dest(`${paths.dest}/js`))
     .pipe(sync.stream());
 }
 
@@ -66,14 +71,14 @@ exports.scripts = scripts;
 const optimizeImages = () => {
   return gulp.src( `${paths.src}/img/**/*.{png,jpg,svg}`, {"allowEmpty": true})
     .pipe(squoosh())
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest(`${paths.dest}/img`))
 }
 
 exports.images = optimizeImages;
 
 const copyImages = () => {
   return gulp.src( `${paths.src}/img/**/*.{png,jpg,svg}`, {"allowEmpty": true})
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest(`${paths.dest}/img`))
 }
 
 exports.images = copyImages;
@@ -83,7 +88,7 @@ exports.images = copyImages;
 const createWebp = () => {
   return gulp.src( `${paths.src}/img/**/*.{jpg,png}`, {"allowEmpty": true})
     .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest(`${paths.dest}/img`))
 }
 
 exports.createWebp = createWebp;
@@ -91,13 +96,14 @@ exports.createWebp = createWebp;
 // Sprite
 const sprite = () => {
   return gulp.src(`${paths.src}/sprites/*.svg`)
-      .pipe(imagemin([
-          imagemin.svgo({
-              plugins: [
-                  {removeViewBox: false}
-              ]
-          })
-      ]))
+      //todo: optimaze sprite images
+      // .pipe(imagemin([
+      //     imagemin.svgo({
+      //         plugins: [
+      //             {removeViewBox: false}
+      //         ]
+      //     })
+      // ]))
       .pipe(svgSprite({
           mode: {stack: true}
       }))
@@ -117,7 +123,7 @@ const copy = (done) => {
   ], {
     base: "source"
   })
-    .pipe(gulp.dest("build"))
+    .pipe(gulp.dest(paths.dest))
   done();
 }
 
@@ -126,7 +132,7 @@ exports.copy = copy;
 // Clean
 
 const clean = () => {
-  return del("build");
+  return del(paths.dest);
 };
 
 // Server
@@ -134,7 +140,7 @@ const clean = () => {
 const server = (done) => {
   sync.init({
     server: {
-      baseDir: "build"
+      baseDir: paths.dest
     },
     cors: true,
     notify: false,
@@ -155,9 +161,9 @@ const reload = (done) => {
 // Watcher
 
 const watcher = () => {
-  gulp.watch(`${paths.src}/sass/**/*.scss`, gulp.series(styles));
-  gulp.watch(`${paths.src}/js/script.js`, gulp.series(scripts));
-  gulp.watch(`${paths.src}/**/*.html`, gulp.series(html, reload));
+  gulp.watch(`${paths.watch}/sass/**/*.scss`, gulp.series(styles));
+  gulp.watch(`${paths.watch}/js/script.js`, gulp.series(scripts));
+  gulp.watch(`${paths.watch}/**/*.html`, gulp.series(html, reload));
 }
 
 // Build
