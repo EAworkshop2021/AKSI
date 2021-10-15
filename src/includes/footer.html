@@ -1,3 +1,126 @@
-<footer>
-  footer
+<footer class="main-footer">
+  <section class="wrapper main-footer__form footer-form">
+    <h2>
+      Получите <span>бесплатную</span> консультацию
+    </h2>
+    <p>Перезвоним через несколько минут и ответим на ваши вопросы
+    </p>
+    <form method="post" id="form">
+
+      <div class="footer-form__inputs">
+        <label for="name" class="visually-hidden">Имя:</label>
+        <input type="text" name="name" id="name" placeholder="Имя:" required>
+
+        <label for="tel" class="visually-hidden">Телефон:</label>
+        <input type="tel" name="tel" id="tel" placeholder="Телефон:" required pattern="^\+7\([0-9]{0,3}\)?[0-9]{0,7}">
+
+        <button class="footer-form__btn btn btn--form" type="submit">Отправить</button>
+
+        <div class="footer-form__checkbox">
+          <input type="checkbox" name="i_agree" id="i_agree" checked required>
+          <label for="i_agree">Я принимаю условия Пользовательского соглашения и даю свое согласие на обработку моих
+            персональных данных в соответствии с Политикой конфиденциальности</label>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="main-footer__services wrapper">
+    <h2 class="visually-hidden">Перечень услуг компании Акси</h2>
+    <ul class="footer-services">
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Обслуживание и администрирование рабочих мест
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Настройка и обслуживание серверов
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">IT-аудит
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Организация удаленного доступа
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Обслуживание офисной техники
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Администрирование 1С
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Защита компьютеров и сетей
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Монтаж и настройка wi-fi
+        </a>
+      </li>
+      <li class="footer-services__item">
+        <a href="#!" class="footer-services__link">Монтаж и настройка wi-fi
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <div class="wrapper wrapper--footer-bottom">
+    <section class="main-footer__logo-block footer-logo">
+      <h2 class="visually-hidden">логотип Акси и правовые соглашения</h2>
+      <a class="footer-logo__link" aria-label="Smart device website logo and link to main page">
+        <img src="img/logo.svg" width="182" height="55" alt="логотип Акси: аутсорсинг профессионально" loading="eager">
+      </a>
+      <p>
+        2016 - 2021 © AKSi
+      </p>
+      <ul class="footer-logo__links">
+        <li>
+          <a href="#!">Обслуживание и администрирование рабочих мест
+          </a>
+        </li>
+        <li>
+          <a href="#!">Настройка и обслуживание серверов
+          </a>
+        </li>
+    </section>
+
+    <section class="main-footer__other-links">
+      <h2 class="visually-hidden">Навигация по сайту</h2>
+      <ul class="footer-nav">
+        <li class="footer-nav__item">
+          <a href="#!" class="footer-nav__link">Компания
+          </a>
+        </li>
+        <li class="footer-nav__item">
+          <a href="#!" class="footer-nav__link">Отзывы
+          </a>
+        </li>
+        <li class="footer-nav__item">
+          <a href="#!" class="footer-nav__link">Услуги и цены
+          </a>
+        </li>
+        <li class="footer-nav__item">
+          <a href="#!" class="footer-nav__link">Контакты
+          </a>
+        </li>
+        <li class="footer-nav__item">
+          <a href="#!" class="footer-nav__link">Блог
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="main-footer__whatsapp">
+      <h2>Бесплатный аудит</h2>
+      <a href="tel:+73513453456">+7 (351) 345 34 56</a>
+      <p>Пишите в WhatsApp
+        <svg class="social__icon" width="32" height="32">
+          <use xlink:href="img/sprite.svg#icon-whatsapp"></use>
+        </svg>
+      </p>
+    </section>
+  </div>
 </footer>
