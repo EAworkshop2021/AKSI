@@ -1,9 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // font-family: $font-roboto;
+  color: $text_main;
+  font-size: 18px;
+  line-height: 180%;
+}
+
+.page {
+  min-height: 100vh;
+  min-width: $min-width;
+
+  display: flex;
+  flex-direction: column;
+
+  .page__header,
+  .page__footer {
+    flex-shrink: 0;
+  }
+
+  .page__main {
+    flex-grow: 1;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+//crossbrowser
+// firefox placeholder \ invalid fix + ios bdrs
+input,
+textarea {
+  border-radius: 0;
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+// firefox fix: removes red border on inputs:required
+input:required {
+  box-shadow: none
+}
+
+// ios button \ inputs reset
+select,
+textarea,
+input:matches([type="email"],
+  [type="number"],
+  [type="password"],
+  [type="search"],
+  [type="tel"],
+  [type="text"],
+  [type="url"]) {
+  appearance: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: none;
+}
+
 .visually-hidden {
   position: absolute;
-
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
-
-  clip: rect(0 0 0 0);
+  border: 0;
+  padding: 0;
 }

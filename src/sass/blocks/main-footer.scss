@@ -1,0 +1,76 @@
+.main-footer {
+  min-width: $min-width;
+  padding: 32px 0 20px;
+  color: $white;
+
+  background-image: $advantage_gradient;
+}
+
+.main-footer__form {
+  padding-bottom: 44px;
+  border-bottom: 1px solid #33B1DD;
+
+  h2 {
+    @include reset-text;
+    font-size: 30px;
+    line-height: 120%;
+    text-align: center;
+
+    span {
+      color: $logo_light;
+    }
+  }
+
+  p {
+    @include reset-text;
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+  }
+}
+
+.main-footer__services {
+  padding: 21px 0;
+}
+
+.main-footer__whatsapp{
+  h2 {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  a {
+    margin-bottom: 12px;
+
+    color: $white;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+
+    transition: color $trans--300;
+
+    &:hover,
+    &:focus {
+      color: $logo_light;
+    }
+
+    &:active {
+      color: $logo_dark;
+    }
+  }
+
+  p {
+    @include reset-text;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .social__icon {
+    margin-left: 24px;
+  }
+}

@@ -1,3 +1,16 @@
 @import "abstract/font-mixin";
+@import "abstract/mixins";
 @import "global/fonts";
+@import "global/variables";
 @import "global/global";
+@import "global/wrapper";
+
+//blocks
+@import "blocks/main-footer";
+@import "blocks/footer-form";
+@import "blocks/footer-services";
+@import "blocks/footer-logo";
+@import "blocks/footer-nav";
+
+//components
+@import "components/btn";
