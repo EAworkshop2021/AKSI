@@ -1,6 +1,8 @@
 .wrapper {
-  &--dev {
-  width: 320px;
+  width: 95%;
   margin: 0 auto;
+
+  @include vp--360 {
+    width: 90%;
   }
 }
