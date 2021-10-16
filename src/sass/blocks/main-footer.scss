@@ -12,7 +12,7 @@
      $advantage_gradient;
     background-position: top right, center;
     background-repeat: no-repeat;
-    background-size: 30%, auto;
+    background-size: 25%, auto;
   }
 
   @include vp--1024 {
@@ -26,9 +26,9 @@
     flex-wrap: wrap;
   }
 
-  // @include vp--1024 {
-  //   padding: 77px 0 29px;
-  // }
+  @include vp--1024 {
+    justify-content: space-between;
+  }
 }
 
 .main-footer__form {
@@ -85,6 +85,10 @@
   @include vp--768 {
     width: 50%;
   }
+
+  @include vp--1024 {
+    width: 28%;
+  }
 }
 
 .main-footer__logo-block {
@@ -94,12 +98,22 @@
     width: 100%;
     margin-bottom: 20px;
   }
+
+  @include vp--1024 {
+    width: 38%;
+    margin-bottom: 0;
+  }
 }
 
-.main-footer__whatsapp{
+.main-footer__whatsapp {
   @include vp--768 {
     width: 50%;
     padding-left: 15px;
+  }
+
+  @include vp--1024 {
+    width: 28%;
+    padding-left: 0;
   }
 
   h2 {

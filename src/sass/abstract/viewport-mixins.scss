@@ -28,32 +28,21 @@
   }
 }
 
-@mixin vp--1919 {
-  @media (min-width: $vp--1920) {
+@mixin vp--1440 {
+  @media (min-width: 1440px) {
     @content;
   }
 }
 
-@mixin vp--1639 {
-  @media (min-width: $vp--1640) {
+
+@mixin vp--1640 {
+  @media (min-width: 1640px) {
     @content;
   }
 }
 
-@mixin vp--1439 {
-  @media (min-width: $vp--1440) {
-    @content;
-  }
-}
-
-@mixin vp--1349 {
-  @media (min-width: $vp--1350) {
-    @content;
-  }
-}
-
-@mixin vp--1279 {
-  @media (min-width: $vp--1280) {
+@mixin vp--1920 {
+  @media (min-width: 1920px) {
     @content;
   }
 }

@@ -35,4 +35,8 @@
   &:active {
     color: $logo_dark;
   }
+
+  @include vp--1024 {
+    font-size: 16px;
+  }
 }

@@ -8,6 +8,10 @@
   @include vp--768 {
     flex-direction: row;
   }
+
+  @include vp--768 {
+    justify-content: space-between;
+  }
 }
 
 .footer-services__item {
@@ -18,6 +22,10 @@
     width: 50%;
   }
 
+  @include vp--1024 {
+    width: 28%;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -25,6 +33,26 @@
   &:nth-child(even) {
     @include vp--768 {
       padding-left: 15px;
+    }
+
+    @include vp--1024 {
+      padding-left: 0;
+    }
+  }
+
+  &:nth-child(even) {
+    @include vp--768 {
+      padding-left: 15px;
+    }
+
+    @include vp--1024 {
+      padding-left: 0;
+    }
+  }
+
+  &:nth-child(3n - 2) {
+    @include vp--1024 {
+      width: 38%;
     }
   }
 }

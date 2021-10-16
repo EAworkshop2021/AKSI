@@ -10,11 +10,25 @@
       width: 135px;
       padding-right: 5px;
     }
+
+    @include vp--1024 {
+      order: 2;
+    }
+
+    @include vp--1440 {
+      width: fit-content;
+    }
   }
 }
 
 .footer-logo__link {
   margin-right: 20px;
+
+  img {
+    display: block;
+    width: 182px;
+    height: 55px;
+  }
 
   @include vp--360 {
     margin-right: 34px;
@@ -22,6 +36,14 @@
 
   @include vp--768 {
     margin-right: 25px;
+  }
+
+  @include vp--1024 {
+    order: 2;
+  }
+
+  @include vp--1440 {
+    order: 1;
   }
 }
 
@@ -36,6 +58,19 @@
     width: 50%;
     padding-left: 15px;
     margin-left: auto;
+  }
+
+  @include vp--1024 {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 0;
+    margin-left: auto;
+
+    order: 1;
+  }
+
+  @include vp--1440 {
+    width: 230px;
   }
 
   li {
