@@ -1,11 +1,11 @@
 'use strict';
+//валидация формы футера
 (() => {
   const NUMS_BRACKETS_ONLY = /^\+[7]\([0-9]{3}\)[0-9]{0,8}\d*$/;
   const PHONE_NUMS_ONLY = /\d/g;
   const KEYDOWN_NUMS_ONLY = /\d/;
   const PHONE_LENGTH = 11;
   const TEL_PREFIX = `+7(`;
-  const ESC_KEY = `Escape`;
   const BACKSPACE_KEY = `Backspace`;
   const TAB_KEY = `Tab`;
   const ENTER_KEY = `Enter`;

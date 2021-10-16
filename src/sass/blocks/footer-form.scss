@@ -1,3 +1,16 @@
+.footer-form {
+  form {
+    @include vp--360 {
+      width: 327px;
+      margin: 0 auto;
+    }
+
+    @include vp--768 {
+      width: 344px;
+    }
+  }
+}
+
 .footer-form__inputs {
   margin-bottom: 25px;
 

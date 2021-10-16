@@ -5,4 +5,8 @@
   @include vp--360 {
     width: 90%;
   }
+
+  @include vp--1024 {
+    width: 85%;
+  }
 }

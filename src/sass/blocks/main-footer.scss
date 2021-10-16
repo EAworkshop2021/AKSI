@@ -4,6 +4,31 @@
   color: $white;
 
   background-image: $advantage_gradient;
+
+  @include vp--768 {
+    padding: 50px 0 25px;
+
+    background-image: url("../img/bg-plus.svg"),
+     $advantage_gradient;
+    background-position: top right, center;
+    background-repeat: no-repeat;
+    background-size: 30%, auto;
+  }
+
+  @include vp--1024 {
+    padding: 77px 0 29px;
+  }
+}
+
+.main-footer__bottom {
+  @include vp--768 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  // @include vp--1024 {
+  //   padding: 77px 0 29px;
+  // }
 }
 
 .main-footer__form {
@@ -17,6 +42,14 @@
     line-height: 120%;
     text-align: center;
 
+    @include vp--768 {
+      font-size: 45px;
+    }
+
+    @include vp--1024 {
+      font-size: 52px;
+    }
+
     span {
       color: $logo_light;
     }
@@ -28,15 +61,49 @@
     font-size: 18px;
     line-height: 120%;
     text-align: center;
+
+    @include vp--768 {
+      font-size: 20px;
+    }
   }
 }
 
 .main-footer__services {
   padding: 21px 0;
+
+  @include vp--768 {
+    padding-top: 27px;
+    margin-bottom: 15px;
+  }
+
+  @include vp--1024 {
+    margin-bottom: 25px;
+  }
+}
+
+.main-footer__nav {
+  @include vp--768 {
+    width: 50%;
+  }
+}
+
+.main-footer__logo-block {
+  margin-bottom: 16px;
+
+  @include vp--768 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .main-footer__whatsapp{
+  @include vp--768 {
+    width: 50%;
+    padding-left: 15px;
+  }
+
   h2 {
+    @include reset-text;
     margin-bottom: 2px;
     font-weight: normal;
     font-size: 16px;

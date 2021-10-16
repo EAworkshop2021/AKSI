@@ -15,12 +15,13 @@
 }
 
 .footer-nav__link {
-  width: 100%;
+  width: fit-content;
   height: 100%;
+  display: block;
   padding: 5px 0;
 
   font-size: 14px;
-  line-height: 250%;
+  line-height: 100%;
   color: $white;
   text-decoration: none;
 
