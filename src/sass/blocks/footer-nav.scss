@@ -1,0 +1,42 @@
+.footer-nav {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-nav__item {
+  width: 50%;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer-nav__link {
+  width: fit-content;
+  height: 100%;
+  display: block;
+  padding: 5px 0;
+
+  font-size: 14px;
+  line-height: 100%;
+  color: $white;
+  text-decoration: none;
+
+  transition: color $trans--300;
+
+  &:hover,
+  &:focus {
+    color: $logo_light;
+  }
+
+  &:active {
+    color: $logo_dark;
+  }
+
+  @include vp--1024 {
+    font-size: 16px;
+  }
+}

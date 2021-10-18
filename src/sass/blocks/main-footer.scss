@@ -1,0 +1,158 @@
+.main-footer {
+  min-width: $min-width;
+  padding: 30px 0 20px;
+  color: $white;
+
+  background-image: $advantage_gradient;
+
+  @include vp--768 {
+    padding: 50px 0 25px;
+
+    background-image: url("../img/bg-plus.svg"),
+     $advantage_gradient;
+    background-position: top right, center;
+    background-repeat: no-repeat;
+    background-size: 25%, auto;
+  }
+
+  @include vp--1024 {
+    padding: 77px 0 29px;
+  }
+}
+
+.main-footer__bottom {
+  @include vp--768 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include vp--1024 {
+    justify-content: space-between;
+  }
+}
+
+.main-footer__form {
+  padding-bottom: 44px;
+  border-bottom: 1px solid #33B1DD;
+
+  h2 {
+    @include reset-text;
+    margin-bottom: 5px;
+    font-size: 30px;
+    line-height: 120%;
+    text-align: center;
+
+    @include vp--768 {
+      font-size: 45px;
+    }
+
+    @include vp--1024 {
+      font-size: 52px;
+    }
+
+    span {
+      color: $logo_light;
+    }
+  }
+
+  p {
+    @include reset-text;
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+
+    @include vp--768 {
+      font-size: 20px;
+    }
+  }
+}
+
+.main-footer__services {
+  padding: 21px 0;
+
+  @include vp--768 {
+    padding-top: 27px;
+    margin-bottom: 15px;
+  }
+
+  @include vp--1024 {
+    margin-bottom: 25px;
+  }
+}
+
+.main-footer__nav {
+  @include vp--768 {
+    width: 50%;
+  }
+
+  @include vp--1024 {
+    width: 28%;
+  }
+}
+
+.main-footer__logo-block {
+  margin-bottom: 16px;
+
+  @include vp--768 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  @include vp--1024 {
+    width: 38%;
+    margin-bottom: 0;
+  }
+}
+
+.main-footer__whatsapp {
+  @include vp--768 {
+    width: 50%;
+    padding-left: 15px;
+  }
+
+  @include vp--1024 {
+    width: 28%;
+    padding-left: 0;
+  }
+
+  h2 {
+    @include reset-text;
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  a {
+    margin-bottom: 12px;
+
+    color: $white;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+
+    transition: color $trans--300;
+
+    &:hover,
+    &:focus {
+      color: $logo_light;
+    }
+
+    &:active {
+      color: $logo_dark;
+    }
+  }
+
+  p {
+    @include reset-text;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .social__icon {
+    margin-left: 24px;
+  }
+}

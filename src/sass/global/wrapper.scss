@@ -1,0 +1,16 @@
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+
+  @include vp--360 {
+    width: 90%;
+  }
+
+  @include vp--1024 {
+    width: 90%;
+  }
+
+  @include vp--1440 {
+    width: 1255px;
+  }
+}

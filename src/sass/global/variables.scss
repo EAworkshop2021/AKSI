@@ -1,0 +1,72 @@
+// Color
+$logo_background: #00549A;
+$main_light: #20A0C9;
+$white: #FFFFFF;
+$black: #000000;
+$main_background: #E5E5E5;
+$logo_light: #FFCC00;
+$logo_dark: #FF9200;
+$menu_mobile: #1287AC;
+$question: #2BBEEC;
+$button_bottom_layer: #54D3FC;
+$button_stroke: #A194F5;
+$text_main: #333333;
+$notes_background: #F2F7FA;
+$grid_button_border: #C1D0D9;
+$slider_point: #C4C4C4;
+$benefits_icon_border: #FFE3BE;
+$faded_text: #ABB7C1;
+$i_agree: #33B1DD;
+$whatsapp_background: #4CAF50;
+$whatsapp_icon: #FAFAFA;
+$hover_arrow: #1678AC;
+$viber: #6F3FAA;
+$telegram: #7AA5DA;
+$text_light: #666666;
+$important: #E3870C;
+$picture_description: #F1F1F1;
+$author: #FFF5E8;
+$author_info: #F0F9FD;
+$share: #DADDE0;
+$color-transparent: rgba(255, 255, 255, 0);//для Иос
+
+// Gradient
+
+$logo_gradient: linear-gradient(99.01deg, #FFCC00 4.22%, #FF9200 108.35%);
+$hero_gradient: linear-gradient(180deg, #00549A 0%, #20A0C9 23.91%);
+$button_gradient: linear-gradient(99.01deg, #FF9200 4.22%, #FFCC00 108.35%);
+$advantage_gradient: linear-gradient(180deg, #00549A 0%, #20A0C9 81.85%);
+$menu_gradient: linear-gradient(180deg, #00549A 0%, #20A0C9 20.05%);
+
+// Radius
+
+$bottom_radius: 50px;
+$burger_radius: 5px;
+$cards_radius: 6px;
+$benefits_icon_radius: 100px;
+$i_agree_radius: 2px;
+$picture_radius: 10px;
+$important_radius: 4px;
+$drop-down_list: 20px;
+$button_radius: 50px;
+
+// Viewports
+
+$min-width: 320px;
+$mobile-width-only: 360px;
+$tablet-width: 750px;
+$desktop-width: 1290px;
+
+//fonts
+$font-roboto: "Roboto", "Arial", sans-serif;
+
+//shadows
+$button-shadow: 0px 4px 5px #FF9200, 0px 10px 15px #1678AC;
+$button-shadow-active: 0px 2px 5px #FF9200, 0px 8px 15px #1678AC;
+
+//transition
+$trans--300:  0.3s ease-in-out;
+
+//retina
+$retina-dpi:                        144dpi;
+$retina-dppx:                       1.5dppx;

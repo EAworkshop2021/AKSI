@@ -1,0 +1,33 @@
+.btn {
+  width: 100%;
+  min-height: 56px;
+  padding: 5px;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: $white;
+
+  background: $button_gradient;
+  box-shadow: $button-shadow;
+  border: none;
+  border-radius: $button_radius;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $logo_light;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    bottom: -2px;
+    box-shadow: $button-shadow-active;
+  }
+}
