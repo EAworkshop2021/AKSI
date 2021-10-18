@@ -12,6 +12,7 @@ const webp = require("gulp-webp");
 const svgSprite = require("gulp-svg-sprite");
 const del = require("del");
 const sync = require("browser-sync").create();
+const imagemin = require('gulp-imagemin');
 var nunjucks = require("gulp-nunjucks-templates");
 
 const paths = {
@@ -25,7 +26,7 @@ const paths = {
 // Styles
 
 const styles = () => {
-  return gulp.src( `${paths.src}/sass/style.scss`)
+  return gulp.src(`${paths.src}/sass/style.scss`)
     .pipe(plumber())
     .pipe(sourcemap.init())
     .pipe(sass())
@@ -44,7 +45,7 @@ exports.styles = styles;
 // HTML
 
 const html = () => {
-  return gulp.src( `${paths.src}/*.html`)
+  return gulp.src(`${paths.src}/*.html`)
     .pipe(nunjucks({
       path: ["src/layouts", "src/includes"],
       ext: ".html",
@@ -57,7 +58,7 @@ exports.html = html;
 // Scripts
 
 const scripts = () => {
-  return gulp.src( `${paths.src}/js/script.js`, {"allowEmpty": true})
+  return gulp.src(`${paths.src}/js/script.js`, { "allowEmpty": true })
     .pipe(terser())
     .pipe(rename("script.min.js"))
     .pipe(gulp.dest(`${paths.dest}/js`))
@@ -69,7 +70,7 @@ exports.scripts = scripts;
 // Images
 
 const optimizeImages = () => {
-  return gulp.src( `${paths.src}/img/**/*.{png,jpg,svg}`, {"allowEmpty": true})
+  return gulp.src(`${paths.src}/img/**/*.{png,jpg}`, { "allowEmpty": true })
     .pipe(squoosh())
     .pipe(gulp.dest(`${paths.dest}/img`))
 }
@@ -77,17 +78,31 @@ const optimizeImages = () => {
 exports.images = optimizeImages;
 
 const copyImages = () => {
-  return gulp.src( `${paths.src}/img/**/*.{png,jpg,svg}`, {"allowEmpty": true})
+  return gulp.src(`${paths.src}/img/**/*.{png,jpg,svg}`, { "allowEmpty": true })
     .pipe(gulp.dest(`${paths.dest}/img`))
 }
 
 exports.images = copyImages;
 
+//SVG
+
+const optimizeSvg = () => {
+  return gulp.src(`${paths.src}/img/**/*.{svg}`)
+    .pipe(imagemin([
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: false }
+        ]
+      }),
+    ]))
+    .pipe(gulp.dest(`${paths.dest}/img`))
+};
+
 // WebP
 
 const createWebp = () => {
-  return gulp.src( `${paths.src}/img/**/*.{jpg,png}`, {"allowEmpty": true})
-    .pipe(webp({quality: 90}))
+  return gulp.src(`${paths.src}/img/**/*.{jpg,png}`, { "allowEmpty": true })
+    .pipe(webp({ quality: 90 }))
     .pipe(gulp.dest(`${paths.dest}/img`))
 }
 
@@ -96,19 +111,19 @@ exports.createWebp = createWebp;
 // Sprite
 const sprite = () => {
   return gulp.src(`${paths.src}/sprites/*.svg`)
-      //todo: optimaze sprite images
-      // .pipe(imagemin([
-      //     imagemin.svgo({
-      //         plugins: [
-      //             {removeViewBox: false}
-      //         ]
-      //     })
-      // ]))
-      .pipe(svgSprite({
-          mode: {stack: true}
-      }))
-      .pipe(rename("sprite.svg"))
-      .pipe(gulp.dest(`${paths.dest}/img`));
+    // todo: optimize sprite images
+    .pipe(imagemin([
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: false }
+        ]
+      })
+    ]))
+    .pipe(svgSprite({
+      mode: { stack: true }
+    }))
+    .pipe(rename("sprite.svg"))
+    .pipe(gulp.dest(`${paths.dest}/img`));
 };
 exports.sprite = sprite;
 
@@ -118,10 +133,10 @@ const copy = (done) => {
   gulp.src([
     `${paths.src}/fonts/*.{woff2,woff}`,
     `${paths.src}/*.ico`,
-    `${paths.src}/img/**/*.svg`,
-    `!${paths.src}/img/icons/*.svg`,
+    // `${paths.src}/img/**/*.svg`,
+    // `!${paths.src}/img/icons/*.svg`,
   ], {
-    base: "source"
+    base: `${paths.src}`
   })
     .pipe(gulp.dest(paths.dest))
   done();
@@ -172,6 +187,8 @@ const build = gulp.series(
   clean,
   copy,
   optimizeImages,
+  optimizeSvg,
+  copyImages,
   gulp.parallel(
     styles,
     html,
@@ -184,7 +201,6 @@ const build = gulp.series(
 exports.build = build;
 
 // Default
-
 
 exports.default = gulp.series(
   clean,
