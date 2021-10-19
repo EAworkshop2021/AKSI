@@ -46,3 +46,13 @@
     src: $src;
   }
 }
+
+// Добавлю свой миксин, вдруг кому то с этим легче рабоать, да и я пока не разобрался с тем что выше
+
+@mixin font($size, $lh, $weight, $style) {
+  font-family: $font-roboto;
+  font-size: $size;
+  line-height: $lh;
+  font-weight: $weight;
+  font-style: $style;
+}
