@@ -30,4 +30,10 @@
     bottom: -2px;
     box-shadow: $button-shadow-active;
   }
+
+  &--hero {
+    @include vp--360 {
+      width: 83%;
+    }
+  }
 }
