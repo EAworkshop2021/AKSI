@@ -1,0 +1,53 @@
+.hero-section {
+  &::before {
+    position: absolute;
+    content: url("../../img/hero-section-img/header-bg-mobile.png");
+    z-index: -2;
+    top: -33px
+  }
+
+  @include vp--1920 {
+    &::before {
+      content: url("../../img/hero-section-img/header-bg-desktop.png");
+    }
+  }
+}
+
+.hero-section__container {
+  overflow: hidden;
+}
+
+.hero-section__title,
+.hero-section__subtitle {
+  @include reset-text;
+  color: $white;
+  padding-bottom: 27px;
+}
+
+.hero-section__title {
+  @include font(30px, 37px, 500, normal);
+}
+
+.hero-section__subtitle {
+  @include font(16px, 21px, 300, normal);
+}
+
+.hero-section__description {
+  @include reset-text;
+  @include font(16px, 26px, 400, normal);
+  color: $text_main;
+  letter-spacing: -0.1px;
+  padding-bottom: 23px;
+}
+
+.hero-section__img {
+  margin-top: 45px;
+  margin-bottom: 18px;
+  margin-left: 22px;
+
+  @include vp--1920 {
+    width: 929px;
+    height: 753px;
+  }
+
+}
