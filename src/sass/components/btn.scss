@@ -32,8 +32,6 @@
   }
 
   &--hero {
-    @include vp--360 {
-      width: 83%;
-    }
+    width: 270px;
   }
 }
