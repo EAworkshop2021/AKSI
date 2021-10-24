@@ -33,6 +33,23 @@
 
 .hero-section__container {
   overflow: hidden;
+
+  @include vp--1024 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.hero-section__inner {
+  @include vp--1024 {
+    margin-bottom: 56px;
+    width: 60%;
+    padding-right: 20px;
+  }
 }
 
 .hero-section__title,
@@ -75,6 +92,16 @@
   color: $text_main;
   letter-spacing: -0.1px;
   padding-bottom: 23px;
+
+  @include vp--1024 {
+    @include font(18px, 32px, 400, normal);
+    text-align: center;
+    padding: 50px 20px;
+
+    & br {
+      display: none;
+    }
+  }
 }
 
 .hero-section__img {
@@ -83,8 +110,15 @@
   margin-left: 22px;
 
   @include vp--1024 {
-    width: 452px;
-    height: 350px;
+    width: 354px;
+    height: 284px;
+    margin: 90px 0 0;
+  }
+
+  @media (min-width: 1300px) {
+    width: 468px;
+    height: 409px;
+    margin: 45px 0 0;
   }
 
   @include vp--1440 {
