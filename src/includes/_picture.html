@@ -1,0 +1,39 @@
+<!--
+Example usage:
+<include src="source/inc/utils/picture.html"
+         locals='{
+        "name": "picname",
+        "ext": "png",
+        "width": "175",
+        "height": "51",
+        "class": "brand__logo",
+        "alt": "logo"
+    }'>
+</include>
+(you must prepare pictures with the same name and suffixes of pr and size, for exmaple: picname.jpg, picname@2x.jpg, picname@2x.jpg, picname-lg@2x.jpg, and same for webp)
+-->
+
+<picture>
+
+    <source type="image/webp" media="(max-width: 360px)"
+            srcset="img/{{ img.name }}.webp 1x,
+                    img/{{ img.name }}@2x.webp 2x">
+
+   <source type="image/webp" media="(max-width: 720px)"
+            srcset="img/{{ img.name }}@2x.webp 1x,
+                    img/{{ img.name }}-md@2x.webp 2x">
+
+    <source type="image/webp" srcset="img/{{ img.name }}-lg.webp 1x,
+                    img/{{ img.name }}-lg@2x.webp 2x">
+
+    <source media="(max-width: 360px)"
+            srcset="img/{{ img.name }}.{{ img.ext }} 1x,
+                    img/{{ img.name }}@2x.{{ img.ext }} 2x">
+
+   <source media="(min-width: 720px)"
+            srcset="img/{{ img.name }}@2x.{{ img.ext }} 1x,
+                    img/{{ img.name }}-md@2x.{{ img.ext }} 2x">
+
+    <img class="{{ img.class }}" srcset="img/{{ img.name }}-lg@2x.{{ img.ext }} 2x" src="img/{{ img.name }}-lg.{{ img.ext }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ img.alt }}"/>
+
+</picture>
