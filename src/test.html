@@ -10,13 +10,18 @@
 
   {% include "header.html" %}
 
-  {% set pageName = "pageTwo" %}
-    {% include "test-menu.html" %}
+  {% set img = {
+        "name": "photo-test",
+        "ext": "jpg",
+        "width": "1015",
+        "height": "543",
+        "class": "brand__logo",
+        "alt": "logo"
+    } %}
+
+{% include "_picture.html" %}
 
 
-  {# {{ super() }} #}
-  Мой новый контент!!!
-
-  {# {% include "footer.html" %} #}
+  {% include "footer.html" %}
 
 {% endblock %}
