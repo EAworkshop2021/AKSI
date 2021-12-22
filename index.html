@@ -33,18 +33,25 @@
       <button class="btn btn--hero" type="button" aria-label="Расчет стоимости">Расчет стоимости</button>
     </div>
     <picture>
-      <source media="(min-width: 1024px)" srcset="../img/hero-section-img/header-layout-desktop.webp 1x, ../img/hero-section-img/header-layout-desktop@2x.webp">
+      <source media="(min-width: 1024px)"
+        srcset="./img/hero-section-img/header-layout-desktop.webp 1x, ./img/hero-section-img/header-layout-desktop@2x.webp">
       <source media="(min-width: 768px)" srcset="">
-      <source type="image/webp" srcset="../img/hero-section-img/header-layout-mobile.webp 1x, ../img/hero-section-img/header-layout-mobile@2x.webp">
-      <source media="(min-width: 1024px)" srcset="../img/hero-section-img/header-layout-desktop.png 1x, ../img/hero-section-img/header-layout-desktop@2x.png 2x">
+      <source type="image/webp"
+        srcset="./img/hero-section-img/header-layout-mobile.webp 1x, ./img/hero-section-img/header-layout-mobile@2x.webp">
+      <source media="(min-width: 1024px)"
+        srcset="./img/hero-section-img/header-layout-desktop.png 1x, ./img/hero-section-img/header-layout-desktop@2x.png 2x">
       <source media="(min-width: 768px)" srcset="">
-      <img class="hero-section__img" src="../img/hero-section-img/header-layout-mobile.png" srcset="../img/hero-section-img/header-layout-mobile@2x.png" width="341" height="277" alt="Система работы компании">
+      <img class="hero-section__img" src="./img/hero-section-img/header-layout-mobile.png"
+        srcset="./img/hero-section-img/header-layout-mobile@2x.png" width="341" height="277"
+        alt="Система работы компании">
     </picture>
+  </div>
+  <div class="wrapper">
     <p class="hero-section__description">
-      Выполняем техническое обслуживание<br> компаний — от установки компьютеров до<br> закупки оборудования
-      и прокладки сети.<br> Вместо 1 системного администратора в<br> штате — коллектив из 5 программистов,
-      3<br> техников и 4 менеджеров-консультантов.<br> Команда справляется с поставленной<br> задачей в 3 раза
-      быстрее, чем<br> администратор, работающий в одиночку.
+      Выполняем техническое обслуживание компаний — от установки компьютеров до закупки оборудования
+      и прокладки сети. Вместо 1 системного администратора в штате — коллектив из 5 программистов,
+      3 техников и 4 менеджеров-консультантов. Команда справляется с поставленной задачей в 3 раза
+      быстрее, чем администратор, работающий в одиночку.
     </p>
   </div>
 </section>
@@ -113,7 +120,7 @@
     </div>
   </section>
 
-  <section class="main-footer__services wrapper ">
+  <section class="wrapper main-footer__services">
     <h2 class="visually-hidden">Перечень услуг компании Акси</h2>
     <ul class="footer-services">
       <li class="footer-services__item">
@@ -204,11 +211,12 @@
     <section class="main-footer__whatsapp">
       <h2>Бесплатный аудит</h2>
       <a href="tel:+73513453456">+7 (351) 345 34 56</a>
-      <p>Пишите в WhatsApp
+      <a href="https://api.whatsapp.com/send?phone=73513453456" rel="nofollow" target="_blank">
+        Пишите в WhatsApp
         <svg class="social__icon" width="32" height="32">
           <use xlink:href="img/sprite.svg#icon-whatsapp"></use>
         </svg>
-      </p>
+      </a>
     </section>
   </div>
 </footer>
