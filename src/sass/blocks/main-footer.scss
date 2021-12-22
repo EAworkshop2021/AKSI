@@ -31,7 +31,7 @@
   }
 
   section {
-    @media screen and (max-width: $tablet-width - 1) {
+    @media screen and (max-width: ($tablet-width - 1)) {
       margin-bottom: 16px;
     }
   }
@@ -75,7 +75,8 @@
 }
 
 .main-footer__services {
-  padding: 21px 0;
+  padding-top: 21px;
+  padding-bottom: 21px;
 
   @include vp--768 {
     padding-top: 27px;
