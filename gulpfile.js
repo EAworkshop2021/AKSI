@@ -24,7 +24,6 @@ const paths = {
 };
 
 // Styles
-
 const styles = () => {
   return gulp.src(`${paths.src}/sass/style.scss`)
     .pipe(plumber())
@@ -56,7 +55,6 @@ const html = () => {
 exports.html = html;
 
 // Scripts
-
 const scripts = () => {
   return gulp.src(`${paths.src}/js/script.js`, { "allowEmpty": true })
     .pipe(terser())
@@ -68,7 +66,6 @@ const scripts = () => {
 exports.scripts = scripts;
 
 // Images
-
 const optimizeImages = () => {
   return gulp.src(`${paths.src}/img/**/*.{png,jpg}`, { "allowEmpty": true })
     .pipe(squoosh())
@@ -116,7 +113,6 @@ const sprite = () => {
 exports.sprite = sprite;
 
 // Copy
-
 const copy = (done) => {
   gulp.src([
     `${paths.src}/fonts/*.{woff2,woff}`,
@@ -133,13 +129,11 @@ const copy = (done) => {
 exports.copy = copy;
 
 // Clean
-
 const clean = () => {
   return del(paths.dest);
 };
 
 // Server
-
 const server = (done) => {
   sync.init({
     server: {
@@ -155,14 +149,12 @@ const server = (done) => {
 exports.server = server;
 
 // Reload
-
 const reload = (done) => {
   sync.reload();
   done();
 }
 
 // Watcher
-
 const watcher = () => {
   gulp.watch(`${paths.watch}/sass/**/*.scss`, gulp.series(styles));
   gulp.watch(`${paths.watch}/js/script.js`, gulp.series(scripts));
@@ -170,7 +162,6 @@ const watcher = () => {
 }
 
 // Build
-
 const build = gulp.series(
   clean,
   copy,
@@ -189,7 +180,6 @@ const build = gulp.series(
 exports.build = build;
 
 // Default
-
 exports.default = gulp.series(
   clean,
   copy,
