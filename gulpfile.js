@@ -12,7 +12,7 @@ const webp = require("gulp-webp");
 const svgSprite = require("gulp-svg-sprite");
 const del = require("del");
 const sync = require("browser-sync").create();
-const imagemin = require('gulp-svgmin');
+const svgMin = require('gulp-svgmin');
 var nunjucks = require("gulp-nunjucks-templates");
 
 const paths = {
@@ -85,7 +85,7 @@ exports.images = copyImages;
 
 const optimizeSvg = () => {
   return gulp.src(`${paths.src}/img/**/*.{svg}`)
-    .pipe(imagemin())
+    .pipe(svgMin())
     .pipe(gulp.dest(`${paths.dest}/img`))
 };
 
@@ -103,7 +103,7 @@ exports.createWebp = createWebp;
 const sprite = () => {
   return gulp.src(`${paths.src}/sprites/*.svg`)
     // todo: optimize sprite images
-    .pipe(imagemin())
+    .pipe(svgMin())
     .pipe(svgSprite({
       mode: { stack: true }
     }))
