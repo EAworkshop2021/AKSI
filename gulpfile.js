@@ -12,7 +12,7 @@ const webp = require("gulp-webp");
 const svgSprite = require("gulp-svg-sprite");
 const del = require("del");
 const sync = require("browser-sync").create();
-const imagemin = require('gulp-imagemin');
+const svgMin = require('gulp-svgmin');
 var nunjucks = require("gulp-nunjucks-templates");
 
 const paths = {
@@ -24,7 +24,6 @@ const paths = {
 };
 
 // Styles
-
 const styles = () => {
   return gulp.src(`${paths.src}/sass/style.scss`)
     .pipe(plumber())
@@ -56,7 +55,6 @@ const html = () => {
 exports.html = html;
 
 // Scripts
-
 const scripts = () => {
   return gulp.src(`${paths.src}/js/script.js`, { "allowEmpty": true })
     .pipe(terser())
@@ -68,7 +66,6 @@ const scripts = () => {
 exports.scripts = scripts;
 
 // Images
-
 const optimizeImages = () => {
   return gulp.src(`${paths.src}/img/**/*.{png,jpg}`, { "allowEmpty": true })
     .pipe(squoosh())
@@ -88,13 +85,7 @@ exports.images = copyImages;
 
 const optimizeSvg = () => {
   return gulp.src(`${paths.src}/img/**/*.{svg}`)
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [
-          { removeViewBox: false }
-        ]
-      }),
-    ]))
+    .pipe(svgMin())
     .pipe(gulp.dest(`${paths.dest}/img`))
 };
 
@@ -112,13 +103,7 @@ exports.createWebp = createWebp;
 const sprite = () => {
   return gulp.src(`${paths.src}/sprites/*.svg`)
     // todo: optimize sprite images
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [
-          { removeViewBox: false }
-        ]
-      })
-    ]))
+    .pipe(svgMin())
     .pipe(svgSprite({
       mode: { stack: true }
     }))
@@ -128,7 +113,6 @@ const sprite = () => {
 exports.sprite = sprite;
 
 // Copy
-
 const copy = (done) => {
   gulp.src([
     `${paths.src}/fonts/*.{woff2,woff}`,
@@ -145,13 +129,11 @@ const copy = (done) => {
 exports.copy = copy;
 
 // Clean
-
 const clean = () => {
   return del(paths.dest);
 };
 
 // Server
-
 const server = (done) => {
   sync.init({
     server: {
@@ -167,14 +149,12 @@ const server = (done) => {
 exports.server = server;
 
 // Reload
-
 const reload = (done) => {
   sync.reload();
   done();
 }
 
 // Watcher
-
 const watcher = () => {
   gulp.watch(`${paths.watch}/sass/**/*.scss`, gulp.series(styles));
   gulp.watch(`${paths.watch}/js/script.js`, gulp.series(scripts));
@@ -182,7 +162,6 @@ const watcher = () => {
 }
 
 // Build
-
 const build = gulp.series(
   clean,
   copy,
@@ -201,7 +180,6 @@ const build = gulp.series(
 exports.build = build;
 
 // Default
-
 exports.default = gulp.series(
   clean,
   copy,

@@ -11,11 +11,35 @@
   {% include "header.html" %}
 
   {% set pageName = "pageOne" %}
-    {% include "test-menu.html" %}
 
+    {# {% include "test-menu.html" %} #}
+    {% include "hero-section.html" %}
 
   {# {{ super() }} #}
+
   Мой новый контент!!!
+
+  <ul>
+    {% for item in [
+                    {href: 'index.html', caption: 'Index'},
+                    {href: 'blog.html', caption: 'blog'},
+                    {href: 'about.html', caption: 'About'}
+                    ] %}
+        {% include 'menu-item.html' %}
+        {# <li><a href="{{ item.href }}">{{ item.caption }}</a></li> #}
+    {% endfor %}
+  </ul>
+
+
+  <ul>
+
+    {% set item = { href: 'index.html', caption: 'Index' } %}
+    {% include 'menu-item.html' %}
+
+    {% set item = { href: 'test.html', caption: 'Test' } %}
+    {% include 'menu-item.html' %}
+
+  </ul>
 
   {% include "footer.html" %}
 
