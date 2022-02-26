@@ -1,0 +1,38 @@
+<section class="our-team wrapper">
+  <h2>Наша команда
+    <svg width="48" height="26">
+      <use xlink:href="img/sprite.svg#icon-logo"></use>
+    </svg>
+  </h2>
+  <ul>
+    {% for item in [
+                    {href: '#!', title: 'Сергей', descr: 'старший системный администратор',
+                    imgName: 'sergei-senior-admin', imgClass: '.img'},
+                    {href: '#!', title: 'Петр', descr: 'системный администратор',
+                    imgName: 'petr-admin', imgClass: '.img'},
+                    {href: '#!', title: 'Евгений', descr: 'специалист по сетевым технологиям',
+                    imgName: 'evgeni-network', imgClass: '.img'},
+                    {href: '#!', title: 'Елена', descr: 'оператор тех поддержки',
+                    imgName: 'elena-tech-sup', imgClass: '.img'}
+                    ] %}
+      {% include 'components/team-item.html' %}
+    {% endfor %}
+  </ul>
+
+  <ul class="slider__btns">
+    <li>
+      <button type="button" class="slider__btn slider__btn--left" aria-label="кнопка листать влево">
+        <svg width="16" height="6" viewbox="0 0 16 6">
+          <use xlink:href="img/sprite.svg#icon_arrow"></use>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="slider__btn slider__btn--right" aria-label="кнопка листать вправо">
+        <svg width="16" height="6" viewbox="0 0 16 6">
+          <use xlink:href="img/sprite.svg#icon_arrow"></use>
+        </svg>
+      </button>
+    </li>
+  </ul>
+</section>

@@ -55,6 +55,7 @@ $button_radius: 50px;
 $min-width: 320px;
 $mobile-width-only: 360px;
 $tablet-width: 768px;
+$mobile-only: $tablet-width - 1px;
 $desktop-width: 1290px;
 
 //fonts

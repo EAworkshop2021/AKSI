@@ -101,7 +101,7 @@ exports.createWebp = createWebp;
 
 // Sprite
 const sprite = () => {
-  return gulp.src(`${paths.src}/sprites/*.svg`)
+  return gulp.src(`${paths.src}/img/sprites/*.svg`)
     // todo: optimize sprite images
     .pipe(svgMin())
     .pipe(svgSprite({

@@ -31,7 +31,7 @@
   }
 
   section {
-    @media screen and (max-width: ($tablet-width - 1)) {
+    @media screen and (max-width: ($mobile-only)) {
       margin-bottom: 16px;
     }
   }
