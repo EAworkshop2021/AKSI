@@ -1,0 +1,26 @@
+.title-svg {
+  font-size: 30px;
+  line-height: 140%;
+  color: $text_main;
+
+  @include media(md) {
+    font-size: 38px;
+  }
+
+  @include media(xl) {
+    font-size: 46px;
+  }
+
+  svg {
+    height: 22px;
+    vertical-align: middle;
+
+    @include media(md) {
+      height: 24px;
+    }
+
+    @include media(xl) {
+      height: 26px;
+    }
+  }
+}

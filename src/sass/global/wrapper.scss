@@ -3,6 +3,11 @@
   padding: 0 16px;
   margin: 0 auto;
 
+  // &--our-team {
+  //   padding-left: 0;
+  //   padding-right: 0;
+  // }
+
   @include media(md) {
     padding: 0 25px;
   }
@@ -17,3 +22,4 @@
     margin: 0 auto;
   }
 }
+
