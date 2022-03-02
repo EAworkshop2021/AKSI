@@ -53,10 +53,11 @@ $button_radius: 50px;
 // Viewports
 
 $min-width: 320px;
-$mobile-width-only: 360px;
+$mobile-width: 360px;
 $tablet-width: 768px;
 $mobile-only: $tablet-width - 1px;
 $desktop-width: 1290px;
+$max-width: 1920px;
 
 //fonts
 $font-roboto: "Roboto", "Arial", sans-serif;

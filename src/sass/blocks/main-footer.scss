@@ -5,7 +5,7 @@
 
   background-image: $advantage_gradient;
 
-  @include vp--768 {
+  @include media(md) {
     padding: 50px 0 25px;
 
     background-image: url("../img/bg-plus.svg"),
@@ -15,18 +15,18 @@
     background-size: 25%, auto;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     padding: 77px 0 29px;
   }
 }
 
 .main-footer__bottom {
-  @include vp--768 {
+  @include media(md) {
     display: flex;
     flex-wrap: wrap;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     justify-content: space-between;
   }
 
@@ -52,7 +52,7 @@
       font-size: 45px;
     }
 
-    @include vp--1024 {
+    @include media(lg) {
       font-size: 52px;
     }
 
@@ -83,7 +83,7 @@
     margin-bottom: 15px;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     margin-bottom: 25px;
   }
 }
@@ -93,7 +93,7 @@
     width: 50%;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     width: 28%;
   }
 }
@@ -106,7 +106,7 @@
     margin-bottom: 20px;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     width: 38%;
     margin-bottom: 0;
   }
@@ -121,7 +121,7 @@
     padding-left: 15px;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     width: 28%;
     padding-left: 0;
   }
