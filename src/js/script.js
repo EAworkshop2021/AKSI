@@ -122,3 +122,164 @@
   });
 
 })();
+
+//слайдер Команда
+(() => {
+  const SMALL_SCREEN = 576;
+  const GAP_MOB = 47;
+
+  const container = document.querySelector(`.slider`);
+
+  const initSlider = () => {
+    const slider = container.querySelector(`.slider__list`);
+    const sliderItem = container.querySelector(`.slider__item`);
+    const sliderItems = container.querySelectorAll(`.slider__item`);
+
+    const left = container.querySelector(`.slider__btn--left`);
+    const right = container.querySelector(`.slider__btn--right`);
+
+    slider.style.transform = ``;
+
+    let slide = 0;
+    let viewport = document.documentElement.clientWidth;
+    // let moveStep = container.offsetWidth;
+    // let sliderLength = slider.offsetWidth;
+    // let slidesCount = sliderLength / moveStep;
+
+    if (viewport < SMALL_SCREEN) {
+
+      let slidesCount = sliderItems.length;
+      let itemWidth = sliderItem.offsetWidth;
+      let slidesOverlap = (viewport - (itemWidth + (GAP_MOB * 2))) / 2;
+
+      let initStepToSlide_1 = itemWidth - slidesOverlap;
+      let stepToSlide_0 = GAP_MOB + slidesOverlap;
+      let sliderStep = itemWidth + GAP_MOB;
+      let curStep;
+
+      slide = 1;
+      slider.style.transform = `translateX(-${initStepToSlide_1}px)`;
+      //slider controls
+      right.addEventListener(`click`, () => {
+
+        if (slide < (slidesCount - 1)) {
+          // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
+          // slide === 1 ? curStep = initStepToSlide_1 : curStep = (slide * sliderStep) + initStepToSlide_1;
+          curStep = (slide * sliderStep) + initStepToSlide_1;
+          slide++;
+        } else {
+          slide = 0;
+          // slider.style.transform = `translateX(+${stepToSlide_0}px)`;
+          curStep = -stepToSlide_0;
+        }
+        // slider.style.transform = `translateX(-${slide * moveStep}px)`;
+        // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
+        slider.style.transform = `translateX(${curStep * -1}px)`;
+      });
+
+      left.addEventListener(`click`, () => {
+
+        if (slide > 0) {
+          slide--;
+
+          slide === 0 ?
+            curStep = -stepToSlide_0 :
+            curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
+          // curStep = (slide * sliderStep) + initStepToSlide_1;
+        } else {
+          slide = (slidesCount - 1);
+          curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
+        }
+        // slider.style.transform = `translateX(-${slide * moveStep}px)`;
+        // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
+        slider.style.transform = `translateX(${curStep * -1}px)`;
+      });
+      //swipe
+      let xDown = null;
+      let yDown = null;
+
+      const handleTouchStart = (evt) => {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+      };
+      const handleTouchMove = (evt) => {
+        if (!xDown || !yDown) {
+          return;
+        }
+
+        let xUp = evt.touches[0].clientX;
+        let yUp = evt.touches[0].clientY;
+        let xDiff = xDown - xUp;
+        let yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+
+          if (xDiff > 0) {
+            if (slide < (slidesCount - 1)) {
+
+              curStep = (slide * sliderStep) + initStepToSlide_1;
+              slide++;
+            } else {
+              slide = 0;
+              curStep = -stepToSlide_0;
+            }
+
+            slider.style.transform = `translateX(${curStep * -1}px)`;
+
+          } else {
+            if (slide > 0) {
+              slide--;
+
+              slide === 0 ?
+                curStep = -stepToSlide_0 :
+                curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
+            } else {
+              slide = (slidesCount - 1);
+              curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
+            }
+
+            slider.style.transform = `translateX(${curStep * -1}px)`;
+          }
+        }
+        xDown = null;
+        yDown = null;
+      };
+
+      slider.addEventListener(`touchstart`, handleTouchStart, false);
+      slider.addEventListener(`touchmove`, handleTouchMove, false);
+
+    } else {
+      let moveStep = container.offsetWidth;
+      let sliderLength = slider.offsetWidth;
+      let slidesCount = sliderLength / moveStep;
+
+      right.addEventListener(`click`, () => {
+        if (slide < (slidesCount - 1)) {
+          slide++;
+        } else {
+          slide = 0;
+        }
+
+        slider.style.transform = `translateX(-${slide * moveStep}px)`;
+      });
+
+      left.addEventListener(`click`, () => {
+        if (slide > 0) {
+          slide--;
+        } else {
+          slide = (slidesCount - 1);
+        }
+
+        slider.style.transform = `translateX(-${slide * moveStep}px)`;
+      });
+    }
+  };
+
+  if (container) {
+    initSlider();
+
+    // window.addEventListener(`resize`, window.utils.debounce(() => {
+    //   initiateSlider();
+    // }));
+  }
+})();
