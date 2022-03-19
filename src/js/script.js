@@ -142,9 +142,6 @@
 
     let slide = 0;
     let viewport = document.documentElement.clientWidth;
-    // let moveStep = container.offsetWidth;
-    // let sliderLength = slider.offsetWidth;
-    // let slidesCount = sliderLength / moveStep;
 
     if (viewport < SMALL_SCREEN) {
 
@@ -161,19 +158,14 @@
       slider.style.transform = `translateX(-${initStepToSlide_1}px)`;
       //slider controls
       right.addEventListener(`click`, () => {
-
         if (slide < (slidesCount - 1)) {
-          // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
-          // slide === 1 ? curStep = initStepToSlide_1 : curStep = (slide * sliderStep) + initStepToSlide_1;
           curStep = (slide * sliderStep) + initStepToSlide_1;
           slide++;
         } else {
           slide = 0;
-          // slider.style.transform = `translateX(+${stepToSlide_0}px)`;
           curStep = -stepToSlide_0;
         }
-        // slider.style.transform = `translateX(-${slide * moveStep}px)`;
-        // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
+
         slider.style.transform = `translateX(${curStep * -1}px)`;
       });
 
@@ -185,13 +177,11 @@
           slide === 0 ?
             curStep = -stepToSlide_0 :
             curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
-          // curStep = (slide * sliderStep) + initStepToSlide_1;
         } else {
           slide = (slidesCount - 1);
           curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
         }
-        // slider.style.transform = `translateX(-${slide * moveStep}px)`;
-        // slider.style.transform = `translateX(-${(slide * sliderStep) + initStepToSlide_1}px)`;
+
         slider.style.transform = `translateX(${curStep * -1}px)`;
       });
       //swipe
@@ -249,11 +239,13 @@
       slider.addEventListener(`touchmove`, handleTouchMove, false);
 
     } else {
+      //big screens no swipe
       let moveStep = container.offsetWidth;
       let sliderLength = slider.offsetWidth;
-      let slidesCount = sliderLength / moveStep;
+      let slidesCount = Math.ceil(sliderLength / moveStep);
 
       right.addEventListener(`click`, () => {
+
         if (slide < (slidesCount - 1)) {
           slide++;
         } else {
@@ -264,6 +256,7 @@
       });
 
       left.addEventListener(`click`, () => {
+
         if (slide > 0) {
           slide--;
         } else {
@@ -278,8 +271,10 @@
   if (container) {
     initSlider();
 
-    // window.addEventListener(`resize`, window.utils.debounce(() => {
-    //   initiateSlider();
-    // }));
+    window.addEventListener(`resize`, () => {
+      setTimeout(() => {
+        initSlider()
+      }, 600);
+    });
   }
 })();
