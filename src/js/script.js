@@ -126,19 +126,22 @@
 //слайдер Команда
 (() => {
   const SMALL_SCREEN = 576;
+  const LARGE_SCREEN = 1290;
   const GAP_MOB = 47;
 
-  const container = document.querySelector(`.slider`);
+  const container = document.querySelector(`.slider-wrapper`);
 
   const initSlider = () => {
-    const slider = container.querySelector(`.slider__list`);
+    const slider = container.querySelector(`.slider`);
+    const sliderList= container.querySelector(`.slider__list`);
     const sliderItem = container.querySelector(`.slider__item`);
     const sliderItems = container.querySelectorAll(`.slider__item`);
+    const sliderBtns = container.querySelector(`.slider__btns`);
 
     const left = container.querySelector(`.slider__btn--left`);
     const right = container.querySelector(`.slider__btn--right`);
 
-    slider.style.transform = ``;
+    sliderList.style.transform = ``;
 
     let slide = 0;
     let viewport = document.documentElement.clientWidth;
@@ -155,7 +158,7 @@
       let curStep;
 
       slide = 1;
-      slider.style.transform = `translateX(-${initStepToSlide_1}px)`;
+      sliderList.style.transform = `translateX(-${initStepToSlide_1}px)`;
       //slider controls
       right.addEventListener(`click`, () => {
         if (slide < (slidesCount - 1)) {
@@ -166,7 +169,7 @@
           curStep = -stepToSlide_0;
         }
 
-        slider.style.transform = `translateX(${curStep * -1}px)`;
+        sliderList.style.transform = `translateX(${curStep * -1}px)`;
       });
 
       left.addEventListener(`click`, () => {
@@ -182,7 +185,7 @@
           curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
         }
 
-        slider.style.transform = `translateX(${curStep * -1}px)`;
+        sliderList.style.transform = `translateX(${curStep * -1}px)`;
       });
       //swipe
       let xDown = null;
@@ -214,7 +217,7 @@
               curStep = -stepToSlide_0;
             }
 
-            slider.style.transform = `translateX(${curStep * -1}px)`;
+            sliderList.style.transform = `translateX(${curStep * -1}px)`;
 
           } else {
             if (slide > 0) {
@@ -228,20 +231,20 @@
               curStep = ((slide - 1) * sliderStep) + initStepToSlide_1;
             }
 
-            slider.style.transform = `translateX(${curStep * -1}px)`;
+            sliderList.style.transform = `translateX(${curStep * -1}px)`;
           }
         }
         xDown = null;
         yDown = null;
       };
 
-      slider.addEventListener(`touchstart`, handleTouchStart, false);
-      slider.addEventListener(`touchmove`, handleTouchMove, false);
+      sliderList.addEventListener(`touchstart`, handleTouchStart, false);
+      sliderList.addEventListener(`touchmove`, handleTouchMove, false);
 
     } else {
       //big screens no swipe
-      let moveStep = container.offsetWidth;
-      let sliderLength = slider.offsetWidth;
+      let moveStep = slider.offsetWidth;
+      let sliderLength = sliderList.offsetWidth;
       let slidesCount = Math.ceil(sliderLength / moveStep);
 
       right.addEventListener(`click`, () => {
@@ -252,7 +255,7 @@
           slide = 0;
         }
 
-        slider.style.transform = `translateX(-${slide * moveStep}px)`;
+        sliderList.style.transform = `translateX(-${slide * moveStep}px)`;
       });
 
       left.addEventListener(`click`, () => {
@@ -263,8 +266,12 @@
           slide = (slidesCount - 1);
         }
 
-        slider.style.transform = `translateX(-${slide * moveStep}px)`;
+        sliderList.style.transform = `translateX(-${slide * moveStep}px)`;
       });
+    }
+    //прячет кнопкина больих экранах, если нет прокрутки
+    if (sliderItems.length <= 4) {
+      sliderBtns.style.display = 'none'
     }
   };
 

@@ -4,27 +4,29 @@
       <use xlink:href="img/sprite.svg#icon-logo"></use>
     </svg>
   </h2>
-  <div class="slider">
-    <ul class="slider__list">
-      {% for item in [
-                    {href: '#!', title: 'Сергей', descr: 'старший системный администратор',
-                    imgName: 'sergei-senior-admin', imgClass: '.img'},
-                    {href: '#!', title: 'Петр', descr: 'системный администратор',
-                    imgName: 'petr-admin', imgClass: '.img'},
-                    {href: '#!', title: 'Петр', descr: 'системный администратор',
-                    imgName: 'petr-admin', imgClass: '.img'},
-                    {href: '#!', title: 'Евгений', descr: 'специалист по сетевым технологиям',
-                    imgName: 'evgeni-network', imgClass: '.img'},
-                    {href: '#!', title: 'Петр', descr: 'системный администратор',
-                    imgName: 'petr-admin', imgClass: '.img'},
-                    {href: '#!', title: 'Евгений', descr: 'специалист по сетевым технологиям',
-                    imgName: 'evgeni-network', imgClass: '.img'},
-                    {href: '#!', title: 'Елена', descr: 'оператор тех поддержки',
-                    imgName: 'elena-tech-sup', imgClass: '.img'}
-                    ] %}
+  <div class="slider-wrapper">
+    <div class="slider">
+      <ul class="slider__list">
+        {% for item in [
+        {href: '#!', title: 'Сергей', descr: 'старший системный администратор',
+        imgName: 'sergei-senior-admin', imgClass: '.img'},
+        {href: '#!', title: 'Петр', descr: 'системный администратор',
+        imgName: 'petr-admin', imgClass: '.img'},
+        {href: '#!', title: 'Петр', descr: 'системный администратор',
+        imgName: 'petr-admin', imgClass: '.img'},
+        {href: '#!', title: 'Евгений', descr: 'специалист по сетевым технологиям',
+        imgName: 'evgeni-network', imgClass: '.img'},
+        {href: '#!', title: 'Петр', descr: 'системный администратор',
+        imgName: 'petr-admin', imgClass: '.img'},
+        {href: '#!', title: 'Евгений', descr: 'специалист по сетевым технологиям',
+        imgName: 'evgeni-network', imgClass: '.img'},
+        {href: '#!', title: 'Елена', descr: 'оператор тех поддержки',
+        imgName: 'elena-tech-sup', imgClass: '.img'}
+        ] %}
         {% include 'components/team-item.html' %}
-      {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
+    </div>
     <ul class="slider__btns">
       <li>
         <button type="button" class="slider__btn slider__btn--left" aria-label="кнопка листать влево">
