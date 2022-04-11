@@ -1,10 +1,5 @@
 .services {
   padding-bottom: 0;
-  // @media only screen and ( max-width: 575px) {
-  //   padding-right: 0;
-  //   padding-left: 0;
-  // }
-  // min-width: 0;
 
   h2 {
     margin-bottom: 26px;
@@ -32,14 +27,30 @@
     padding-top: 0;
   }
 
+  @include media(md) {
+    max-width: max-content;
+  }
+
+  @include media(xxl) {
+    min-height: 470px;
+  }
+
   a {
     text-decoration: none;
     margin-bottom: 13px;
   }
 
+  a.btn {
+    @include media(xxl) {
+      width: 187px;
+    }
+  }
+
   a:not(.btn) {
     position: relative;
     align-self: center;
+    padding: 5px 15px;
+
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
@@ -63,7 +74,6 @@
     margin-top: -38px;
 
     align-self: center
-    // margin: -38px auto 22px auto;
   }
 
   h3 {
@@ -76,6 +86,19 @@
 
     @include media(s) {
       font-size: 16px;
+    }
+
+    @include media(lg) {
+      min-height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    @include media(xxl) {
+      min-height: 52px;
+      margin-bottom: 12px;
+      font-size: 22px;
     }
   }
 
@@ -93,6 +116,10 @@
       font-size: 14px;
     }
 
+    @include media(xxl) {
+      font-size: 16px;
+    }
+
     &:first-of-type {
       margin-bottom: 7px;
 
@@ -105,6 +132,11 @@
       @include media(s) {
         font-size: 18px;
       }
+
+      @include media(xxl) {
+        margin-bottom: 14px;
+        font-size: 22px;
+      }
     }
   }
 }
@@ -113,6 +145,11 @@
   display: flex;
   flex-direction: column;
   margin-top: auto;
+
+  @include media(xxl) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .swiper.init {
