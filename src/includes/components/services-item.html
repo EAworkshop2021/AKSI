@@ -1,0 +1,13 @@
+<li class="services__item swiper__item swiper-slide">
+  <img src="img/services-img/{{ item.imgName }}.svg" width="192" height="183"
+    alt="{{ 'иллюстрация к, ' + item.title}}" />
+  <h3>{{ item.title }}</h3>
+  <p>{{ 'от ' + item.price +'₽/мес.' }}</p>
+  <p>{{ item.descr }}</p>
+  <div class="services__item-nav">
+    <a class="btn btn--reversed" href="{{ item.href }}">Заказать
+    </a>
+    <a href="{{ item.href }}">Подробнее
+    </a>
+  </div>
+</li>

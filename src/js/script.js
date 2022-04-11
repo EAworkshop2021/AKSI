@@ -1,4 +1,5 @@
 'use strict';
+
 //валидация формы футера
 (() => {
   const NUMS_BRACKETS_ONLY = /^\+[7]\([0-9]{3}\)[0-9]{0,8}\d*$/;
@@ -284,4 +285,39 @@
       }, 600);
     });
   }
+})();
+//swiper
+(() => {
+  document.querySelector('.swiper').classList.add('init');
+
+  const swiper = new Swiper('.swiper', {
+
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      360: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      450: {
+        slidesPerView: 1.3,
+        spaceBetween: 10,
+      },
+      600: {
+        slidesPerView: 1.4,
+        spaceBetween: 10,
+      },
+      786: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
 })();

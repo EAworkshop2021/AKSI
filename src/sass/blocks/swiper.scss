@@ -1,0 +1,120 @@
+.swiper-wrapper {
+  position: relative;
+}
+
+.swiper {
+  position: relative;
+  margin: 0 auto;
+
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+  overflow-x: auto;
+
+  // @include media( sm ) {
+  //   // width: 544px;
+  //   width: 470px;
+  // }
+
+  // @include media( md ) {
+  //   width: 718px;
+  // }
+
+  // @include media( xl ) {
+  //   width: 1082px;
+  // }
+
+  // @include media( xxl ) {
+  //   width: 1172px;
+  // }
+}
+
+.swiper__list {
+  @include reset-list;
+  height: fit-content;
+  width: max-content;
+  display: flex;
+  transition: all $trans--300;
+
+  // @include media( xl ) {
+  //   // width: 1172px;
+  //   // padding-left: 71.5px;
+  // }
+}
+
+// .swiper__item {
+  // min-height: 324px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // width: 203px;
+  // margin-right: 47px;
+  // padding-bottom: 25px;
+
+  // @include media( sm ) {
+  //   // margin-right: 138px;
+  //   margin-right: 64px;
+  // }
+
+  // @include media( md ) {
+  //   margin-right: 54.5px;
+  // }
+
+  // @include media( xl ) {
+  //   // margin-right: 132.666667px;
+  //   margin-right: 90px;
+  // }
+
+  // @include media( xxl ) {
+  //   margin-right: 120px;
+  // }
+
+  // &:nth-of-type(even) {
+  //   @media only screen and (min-width: 576px) and (max-width: 767px) {
+  //     margin-right: 0;
+  //   }
+  // }
+
+  // &:nth-of-type(3n+3) {
+  //   @media only screen and (min-width: 768px) and (max-width: 1289px) {
+  //     margin-right: 0;
+  //   }
+  // }
+
+  // &:nth-of-type(4n+4) {
+  //   @include media( xl ) {
+  //     margin-right: 0;
+  //   }
+  // }
+
+  // &:nth-of-type(4n+4) {
+  //   @include media( xl ) {
+  //     margin-right: 71.5px;
+  //   }
+  // }
+
+  // &:nth-of-type(4n+4) {
+  //   @include media( xl ) {
+  //     margin-right: 55px;
+  //   }
+  // }
+// }
+
+.swiper.init {
+  overflow-x: hidden;
+
+  .swiper__list {
+    padding-bottom: 55px;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 18.96px;
+  height: 18.96px;
+  background: $slider_point;
+
+  &-active {
+    background: none;
+    border: 4px solid $logo_dark;
+  }
+}
+

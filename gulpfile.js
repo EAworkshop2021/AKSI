@@ -65,6 +65,17 @@ const scripts = () => {
 
 exports.scripts = scripts;
 
+// const vendorJs = () => {
+//   return gulp.src([
+//     `${paths.src}/js/swiper.js`,
+//   ])
+//     // .pipe(concat('vendor.js'))
+//     .pipe(gulp.dest(`${paths.dest}/js`))
+//     .pipe(sync.stream());
+// };
+
+// exports.vendorJs = vendorJs;
+
 // Images
 const optimizeImages = () => {
   return gulp.src(`${paths.src}/img/**/*.{png,jpg}`, { "allowEmpty": true })
@@ -188,6 +199,7 @@ exports.default = gulp.series(
     styles,
     html,
     scripts,
+    vendorJs,
     sprite,
     createWebp
   ),
