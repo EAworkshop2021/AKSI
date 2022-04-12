@@ -288,45 +288,58 @@
 })();
 //swiper
 (() => {
-  const BIG_SCREEN = 1024;
-  let viewport = document.documentElement.clientWidth;
+  const LARGE_SCREEN = 1024;
+  const swiper = document.querySelector('.swiper');
+  const swiperWrapper = swiper.querySelector('.swiper-wrapper');
 
-  if (viewport < BIG_SCREEN) {
-    const swiper = document.querySelector('.swiper');
-    if (!swiper) {
-      return;
-    }
-
-    swiper.classList.add('init');
-
-    const swiperServices = new Swiper('.swiper', {
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        },
-        360: {
-          slidesPerView: 1.2,
-          spaceBetween: 10,
-        },
-        450: {
-          slidesPerView: 1.3,
-          spaceBetween: 10,
-        },
-        600: {
-          slidesPerView: 1.4,
-          spaceBetween: 10,
-        },
-        786: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-      },
-
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+  if (!swiper) {
+    return;
   }
+
+  swiper.classList.add('init');
+
+  const swiperServices = new Swiper('.swiper', {
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        enabled: true,
+      },
+      360: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+        enabled: true,
+      },
+      450: {
+        slidesPerView: 1.3,
+        spaceBetween: 10,
+        enabled: true,
+      },
+      600: {
+        slidesPerView: 1.4,
+        spaceBetween: 10,
+        enabled: true,
+      },
+      786: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        enabled: true,
+      },
+      1024: {
+        enabled: false,
+      },
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+window.addEventListener(`resize`, () => {
+  let viewport = window.innerWidth;
+
+  setTimeout(() => {
+    viewport >= LARGE_SCREEN ? swiperWrapper.style.transform = 'none' : ''
+  }, 400);
+});
 })();

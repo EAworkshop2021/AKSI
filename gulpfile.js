@@ -57,7 +57,7 @@ exports.html = html;
 // Scripts
 const scripts = () => {
   return gulp.src(`${paths.src}/js/script.js`, { "allowEmpty": true })
-    .pipe(terser())
+    // .pipe(terser())
     .pipe(rename("script.min.js"))
     .pipe(gulp.dest(`${paths.dest}/js`))
     .pipe(sync.stream());
@@ -199,7 +199,7 @@ exports.default = gulp.series(
     styles,
     html,
     scripts,
-    vendorJs,
+    // vendorJs,
     sprite,
     createWebp
   ),

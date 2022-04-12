@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
 
-  max-width: 286px;
+  width: 286px;
   min-height: 435px;
   margin-top: 38px;
   margin-right: 10px;
@@ -28,11 +28,14 @@
   }
 
   @include media(md) {
-    max-width: max-content;
+    width: 390px;
   }
 
   @include media(xxl) {
     min-height: 470px;
+    width: 390px;
+
+    padding: 0 20px  20px 35px;
   }
 
   a {
@@ -152,8 +155,8 @@
   }
 }
 
-.swiper.init {
-  .services__item {
-    max-width: max-content;
-  }
-}
+// .swiper.init {
+//   .services__item {
+//     max-width: max-content;
+//   }
+// }
