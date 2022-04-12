@@ -5,11 +5,11 @@
   flex-wrap: wrap;
   flex-direction: column;
 
-  @include vp--768 {
+  @include media(md) {
     flex-direction: row;
   }
 
-  @include vp--768 {
+  @include media(md) {
     justify-content: space-between;
   }
 }
@@ -18,11 +18,11 @@
   width: 100%;
   margin-bottom: 5px;
 
-  @include vp--768 {
+  @include media(md) {
     width: 50%;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     width: 28%;
   }
 
@@ -31,27 +31,27 @@
   }
 
   &:nth-child(even) {
-    @include vp--768 {
+    @include media(md) {
       padding-left: 15px;
     }
 
-    @include vp--1024 {
+    @include media(lg) {
       padding-left: 0;
     }
   }
 
   &:nth-child(even) {
-    @include vp--768 {
+    @include media(md) {
       padding-left: 15px;
     }
 
-    @include vp--1024 {
+    @include media(lg) {
       padding-left: 0;
     }
   }
 
   &:nth-child(3n - 2) {
-    @include vp--1024 {
+    @include media(lg) {
       width: 38%;
     }
   }
@@ -79,7 +79,7 @@
     color: $logo_dark;
   }
 
-  @include vp--768 {
+  @include media(md) {
     font-size: 16px;
   }
 }

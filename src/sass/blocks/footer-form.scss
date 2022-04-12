@@ -1,11 +1,11 @@
 .footer-form {
   form {
-    @include vp--360 {
+    @include media(s) {
       width: 327px;
       margin: 0 auto;
     }
 
-    @include vp--768 {
+    @include media(md) {
       width: 344px;
     }
   }

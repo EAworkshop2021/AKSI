@@ -57,13 +57,24 @@ exports.html = html;
 // Scripts
 const scripts = () => {
   return gulp.src(`${paths.src}/js/script.js`, { "allowEmpty": true })
-    .pipe(terser())
+    // .pipe(terser())
     .pipe(rename("script.min.js"))
     .pipe(gulp.dest(`${paths.dest}/js`))
     .pipe(sync.stream());
 }
 
 exports.scripts = scripts;
+
+// const vendorJs = () => {
+//   return gulp.src([
+//     `${paths.src}/js/swiper.js`,
+//   ])
+//     // .pipe(concat('vendor.js'))
+//     .pipe(gulp.dest(`${paths.dest}/js`))
+//     .pipe(sync.stream());
+// };
+
+// exports.vendorJs = vendorJs;
 
 // Images
 const optimizeImages = () => {
@@ -101,7 +112,7 @@ exports.createWebp = createWebp;
 
 // Sprite
 const sprite = () => {
-  return gulp.src(`${paths.src}/sprites/*.svg`)
+  return gulp.src(`${paths.src}/img/sprites/*.svg`)
     // todo: optimize sprite images
     .pipe(svgMin())
     .pipe(svgSprite({
@@ -188,6 +199,7 @@ exports.default = gulp.series(
     styles,
     html,
     scripts,
+    // vendorJs,
     sprite,
     createWebp
   ),

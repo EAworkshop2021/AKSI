@@ -34,4 +34,26 @@
   &--hero {
     width: 270px;
   }
+
+  &--reversed {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: $text_main;
+    background: transparent;
+    border: 2px solid $grid_button_border;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background: $button_gradient;
+      border: none;
+    }
+
+    &:active {
+      bottom: -2px;
+      box-shadow: $button-shadow-active;
+    }
+  }
 }
