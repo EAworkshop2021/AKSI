@@ -1,9 +1,15 @@
 .services {
-  padding-bottom: 0;
+  // padding-bottom: 0;
 
   h2 {
     margin-bottom: 26px;
-    margin-left: 16px;
+    margin-left: 0;
+    letter-spacing: -2px;
+
+    @include media(sm) {
+      margin-left: 16px;
+      letter-spacing: 0;
+    }
   }
 }
 

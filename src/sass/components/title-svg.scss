@@ -13,10 +13,12 @@
 
   svg {
     height: 22px;
+    width: 40px;
     vertical-align: middle;
 
     @include media(md) {
       height: 24px;
+      width: 48px;
     }
 
     @include media(xl) {

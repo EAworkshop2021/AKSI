@@ -77,6 +77,10 @@
   margin-bottom: 27px;
   color: $white;
 
+  @include media(md) {
+    width: 90%;
+  }
+
   @include media(xl) {
     width: 975px;
     margin-bottom: 56px;
@@ -104,6 +108,10 @@
 
   font-size: 14px;
   line-height: 140%;
+
+  @include media(md) {
+    width: 75%;
+  }
 
   @include media(xl) {
     width: 375px;
