@@ -1,0 +1,165 @@
+.it-sup {
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 50px;
+  color: $white;
+
+  background-image: url("../img/bg-plus.svg"),
+   linear-gradient(180deg, #00549a 0, #20a0c9 81.85%);
+  background-position: 100% 32px, center;
+  background-repeat: no-repeat;
+  background-size: 60%, auto;
+
+  &.section {
+    padding-bottom: 0;
+  }
+
+  @include media(sm) {
+    background-size: 50%, auto;
+  }
+
+  @include media(md) {
+    background-image: url("../img/bg-plus.svg"),
+      linear-gradient(180deg, #00549a 0, #20a0c9 81.85%);
+    background-position: 100% 32px, center;
+    background-repeat: no-repeat;
+    background-size: 300px, auto;
+  }
+
+  @include media(xl) {
+    background-image: url("../img/bg-plus.svg"),
+      linear-gradient(180deg, #00549a 0, #20a0c9 81.85%);
+    background-position: 100% 32px, center;
+    background-repeat: no-repeat;
+    background-size: 300px, auto;
+  }
+
+  @include media(xxl) {
+    min-height: 725px;
+
+    background-image: linear-gradient(180deg, #00549a 0, #20a0c9 81.85%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  &::before {
+    @include media(md) {
+      content: "";
+      width: 200px;
+      height: 160px;
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      background: url("../img/bg-plus.svg") 0 0 no-repeat;
+      background-size: contain;
+      background-position: right;
+      transform: scaleX(-1);
+    }
+  }
+
+  &::after{
+    @include media(xxl) {
+      content: "";
+      width: 506px;
+      height: 300px;
+      position: absolute;
+      top: 35px;
+      right: 0;
+      background: url("../img/bg-plus.svg") 0 0 no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
+  }
+}
+
+.it-sup__title {
+  margin-bottom: 27px;
+  color: $white;
+
+  @include media(xl) {
+    width: 975px;
+    margin-bottom: 56px;
+  }
+
+  br {
+    @include media(sm) {
+      display: none;
+    }
+  }
+
+  svg {
+    display: none;
+
+    @include media(md) {
+      display: inline-block;
+    }
+  }
+}
+
+
+.it-sup__list {
+  @include reset-list;
+  margin-bottom: 40px;
+
+  font-size: 14px;
+  line-height: 140%;
+
+  @include media(xl) {
+    width: 375px;
+  }
+}
+
+.it-sup__item {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 35px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    top: 7px;
+
+    width: 20px;
+    height: 10px;
+    border: 3px solid #fc0;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+  }
+}
+
+.it-sup__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: -56px;
+
+  object-fit: contain;
+  border-radius: 6px;
+  filter: drop-shadow(0px 25px 20px rgba(0, 0, 0, 0.15));
+
+  @include media(md) {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include media(xl) {
+    width: 58%;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+  }
+
+  @include media(1600) {
+    width: 1015px;
+    height: 543px;
+  }
+}
