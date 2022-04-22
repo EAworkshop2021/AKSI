@@ -1,0 +1,34 @@
+.section {
+  padding-top: 34px;
+  padding-bottom: 34px;
+
+  @include media (md) {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  @include media (xl) {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+}
+
+.section__title {
+  @include reset-text;
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 120%;
+  color: $text_main;
+
+  @include media (md) {
+    font-size: 36px;
+    margin-bottom: 35px;
+  }
+
+  @include media (xl) {
+    font-size: 46px;
+    margin-bottom: 57px;
+  }
+}

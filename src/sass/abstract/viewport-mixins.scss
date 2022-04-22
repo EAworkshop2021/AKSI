@@ -52,3 +52,27 @@
     @content;
   }
 }
+
+$breakpoints: (
+    'xs': $min-width,
+    's': $mobile-width,
+    'sm': 576px,
+    'md': $tablet-width,
+    'lg': 1024px,
+    'xl': $desktop-width,
+    'xxl': 1440px,
+    'max': $max-width,
+);
+
+@mixin media( $point ) {
+    @if map-has-key($breakpoints, $point) {
+        @media only screen and ( min-width: map-get($breakpoints, $point) ) {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and ( min-width: ($point + 'px')) {
+            @content;
+        }
+    }
+}

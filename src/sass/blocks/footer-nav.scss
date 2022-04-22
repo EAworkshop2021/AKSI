@@ -36,7 +36,7 @@
     color: $logo_dark;
   }
 
-  @include vp--1024 {
+  @include media(lg) {
     font-size: 16px;
   }
 }

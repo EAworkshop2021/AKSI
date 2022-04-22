@@ -1,0 +1,12 @@
+<li class="our-team__item slider__item">
+  <a href="{{ item.href }}">
+    <picture>
+      <source type="image/webp" srcset="img/our-team-img/{{ item.imgName }}.webp 1x,
+                    img/our-team-img/{{ item.imgName }}@2x.webp 2x">
+      <img class="{{ item.imgClass }}" srcset="img/our-team-img/{{ item.imgName }}@2x.jpg 2x"
+        src="img/our-team-img/{{ item.imgName }}.jpg" width="203" height="203" alt="{{ 'фотография, ' + item.title + ', ' + item.descr }}"/>
+    </picture>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.descr }}</p>
+  </a>
+</li>

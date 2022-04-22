@@ -1,0 +1,43 @@
+.our-team {
+  @media only screen and ( max-width: 575px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  h2 {
+    margin-bottom: 26px;
+    margin-left: 16px;
+  }
+}
+
+.our-team__item {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 203px;
+    height: 203px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+  }
+
+  h3 {
+    @include reset-text;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $text_main;
+  }
+
+  p {
+    @include reset-text;
+    font-size: 16px;
+    line-height: 120%;
+    font-style: italic;
+    color: $main_light;
+  }
+}

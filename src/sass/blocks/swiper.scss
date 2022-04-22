@@ -1,0 +1,76 @@
+.swiper-wrapper {
+  position: relative;
+}
+
+.swiper {
+  position: relative;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.swiper__list {
+  @include reset-list;
+  height: fit-content;
+  width: max-content;
+  display: flex;
+  transition: all $trans--300;
+}
+
+.swiper-pagination-bullet {
+  width: 18.96px;
+  height: 18.96px;
+  background: $slider_point;
+
+  &-active {
+    background: none;
+    border: 4px solid $logo_dark;
+  }
+}
+//>=1024 no swiper just flex
+.swiper.init {
+  @media only screen and ( max-width: 1023px ) {
+    overflow-x: hidden;
+
+    .swiper__list {
+      padding-bottom: 55px;
+    }
+  }
+}
+
+.services {
+  .swiper__list {
+    @include media(lg) {
+      width: 100%;
+      margin-bottom: -36px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .swiper__item {
+    @include media(lg) {
+      //почему 14??
+      width: calc(33.33% - 14px);
+      max-width: calc(33.33% - 20px);//перезаписать ширину карточки свайпера
+      margin-right: 20px;
+      margin-bottom: 36px;
+    }
+
+    @include media(xxl) {
+      width: 398px;
+      max-width: 398px;//перезаписать ширину карточки свайпера
+      margin-right: 30px;
+      margin-bottom: 31px;
+    }
+
+    &:nth-of-type(3n) {
+      @include media(lg) {
+        margin-right: 0;
+      }
+
+      @include media(xxl) {
+        margin-right: 0;
+      }
+    }
+  }
+}

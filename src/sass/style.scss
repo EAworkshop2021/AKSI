@@ -6,6 +6,12 @@
 @import "global/global";
 @import "global/wrapper";
 @import "abstract/utils";
+@import "global/animations";
+
+//components
+@import "components/section";
+@import "components/btn";
+@import "components/title-svg";
 
 //blocks
 @import "blocks/main-footer";
@@ -15,6 +21,8 @@
 @import "blocks/footer-nav";
 @import "blocks/page__header";
 @import "blocks/hero-section";
-
-//components
-@import "components/btn";
+@import "blocks/it-support";
+@import "blocks/our-team";
+@import "blocks/slider";
+@import "blocks/services";
+@import "blocks/swiper";
